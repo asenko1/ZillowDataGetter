@@ -1,12 +1,16 @@
 import java.util.Scanner;
 
+import zillowdata.Property;
+
 public class Main {
 	
 	public static void main(String[] args0){
 		Scanner userInput = new Scanner(System.in);
+		Property myProperty;
 		String streetNum;
 		String CityandState;
 		String zipcode;
+		final String ZWSID; //add later, not in public repo
 		
 		System.out.println("Enter Street Number: ");
 		streetNum = userInput.nextLine();
@@ -15,6 +19,8 @@ public class Main {
 		System.out.println("Enter zipcode: ");
 		zipcode = userInput.nextLine();
 		
+		myProperty = new Property(streetNum, CityandState, zipcode, ZWSID);
+		System.out.println(myProperty.toString());
 		
 	}
 
