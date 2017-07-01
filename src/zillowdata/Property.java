@@ -9,23 +9,20 @@ public class Property {
 	private ZillowID id;
 	private ZillowData data;
 	
-	//Builds property by address, gets ZID for the address, and gets valuation
+	//Builds property by address, gets ZID for the address, and gets data
 	public Property(String street, String CityandState, String zipcode, String ZWSID){
 		address = new Address(street, CityandState, zipcode);
 		this.ZWSID = ZWSID;
+		id = new ZillowID(address, ZWSID);
+		data = new ZillowData(id, ZWSID);
 	}
 
-	private void getID(){
-		try{
-			id = new ZillowID(address, ZWSID);
-		}
-		catch(Exception e){
-			//TODO: placeholder
-		}
+	public ZillowID getID(){
+		return id;
 	}
 	
-	private void getData(){
-		
+	public ZillowData getData(){
+		return data;
 	}
 	
 }
@@ -37,7 +34,7 @@ class Address{
 	
 	public Address(String street, String CityandState, String zipcode){
 		this.street = street;
-		this.CityandState = CityandState;
+		this.CityandState = CityandState; //TODO: reformat to correct URL format
 		this.zipcode = zipcode;
 	}
 	

@@ -5,7 +5,7 @@ public class ZillowData {
 	private int change;
 	private int range;
 	
-	public ZillowData(String zID){
+	public ZillowData(ZillowID zID, String ZWSID){
 		//do HTTP get
 		//parse XML
 	}
