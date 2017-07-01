@@ -1,5 +1,6 @@
 package zillowdata;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Property {
@@ -12,14 +13,9 @@ public class Property {
 		address = new Address(street, CityandState, zipcode);
 		this.ZWSID = ZWSID;
 	}
-	
+
 	private void getID(){
-		try {
-			id = new ZillowID(address, ZWSID);
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		id = new ZillowID(address, ZWSID);
 	}
 	
 	private void getData(){

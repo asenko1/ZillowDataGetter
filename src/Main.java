@@ -10,7 +10,7 @@ public class Main {
 		String streetNum;
 		String CityandState;
 		String zipcode;
-		final String ZWSID; //add later, not in public repo
+		final String ZWSID = ""; //add later, not in public repo
 		
 		System.out.println("Enter Street Number: ");
 		streetNum = userInput.nextLine();
@@ -20,6 +20,8 @@ public class Main {
 		zipcode = userInput.nextLine();
 		
 		myProperty = new Property(streetNum, CityandState, zipcode, ZWSID);
+		
+		System.out.println("Your house valuation result is: ");
 		System.out.println(myProperty.toString());
 		
 	}
