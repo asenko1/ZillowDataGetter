@@ -9,13 +9,19 @@ public class Property {
 	private ZillowID id;
 	private ZillowData data;
 	
+	//Builds property by address, gets ZID for the address, and gets valuation
 	public Property(String street, String CityandState, String zipcode, String ZWSID){
 		address = new Address(street, CityandState, zipcode);
 		this.ZWSID = ZWSID;
 	}
 
 	private void getID(){
-		id = new ZillowID(address, ZWSID);
+		try{
+			id = new ZillowID(address, ZWSID);
+		}
+		catch(Exception e){
+			//TODO: placeholder
+		}
 	}
 	
 	private void getData(){

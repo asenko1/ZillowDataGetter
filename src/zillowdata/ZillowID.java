@@ -57,24 +57,10 @@ public class ZillowID {
 			throw new HTTPException(response.getStatusLine().getStatusCode());
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-		//String readID = reader.readLine();
-		
-		//Creates readable XML
-		DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		InputSource input = new InputSource();
-		input.setCharacterStream(new StringReader(reader.readLine()));
-		Document doc = db.parse(input);
-		
-		//Get XML data
-		NodeList nodes = doc.getElementsByTagName("zpid");
-		Element addressElement = (Element) nodes.item(0);
-		Node node = addressElement.getFirstChild();
-		CharacterData cd = (CharacterData) node;
-		zID = cd.getData();
+		String readID = reader.readLine();
+		ZillowXMLInterface getZID = new ZillowXMLInterface(readID);
+		zID = getZID.getElement("zpid");
 	}
-	
-	
-		
 	
 	public String getID(){
 		return zID;
